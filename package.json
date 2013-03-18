@@ -1,0 +1,31 @@
+{
+  "name": "aggr",
+  "version": "0.0.0",
+  "description": "Content aggregator lib",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha "
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xsurge83/aggr.git"
+  },
+  "keywords": [
+    "REST",
+    "content",
+    "aggregator",
+    ""
+  ],
+  "author": "SS",
+  "license": "BSD",
+  "readmeFilename": "README.md",
+  "gitHead": "5fc9434141e97653a31d8d02ffe5902ec0791f60",
+  "dependencies": {
+    "async": "~0.2.6",
+    "superagent": "~0.12.4"
+  },
+  "devDependencies": {},
+  "directories": {
+    "test": "test"
+  }
+}
