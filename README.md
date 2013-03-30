@@ -26,3 +26,7 @@ aggr
  .appendReq('/parent/:parentId/child/:childId', { childId : 2} , 'child')
  .exec(callback) 
  ``` 
+
+ Todo: 
+ - look for library for url conversions 
+ - 

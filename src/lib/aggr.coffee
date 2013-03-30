@@ -1,9 +1,10 @@
 superagent  = require 'superagent'
 async = require 'async'
 
+
 class Request   
   constructor:(@urlTemplate, @urlParams)->
-   
+
   parseUrl : -> 
     @url = @urlTemplate.toLowerCase() 
     for urlParam, value of @urlParams 
