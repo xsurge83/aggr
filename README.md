@@ -23,7 +23,7 @@ aggr
 .append('/parent/:parentId/children/:childId')
 .exec(callback)
 ```
-** Note childId is a property of parent ** 
+**Note childId is a property of parent** 
 
 -  get parent and child its child  
 ```javascript 
@@ -46,6 +46,6 @@ aggr
  .exec(callback) 
  ``` 
 
- Todo: 
+## Todo: 
  - look for library for url conversions 
  - 
