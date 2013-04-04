@@ -4,16 +4,22 @@ _ = require 'underscore'
 
 class Request   
   url : null 
-
   constructor:(@urlTemplate, @urlParams)->
-
-  parseUrl : -> 
+  assignParamsToUrl : -> 
     @url = @urlTemplate.toLowerCase() 
     for own urlParam, value of @urlParams 
       @url = @url.replace(':' + urlParam.toLowerCase(), value) 
 
+###
+Todo:
+ - add append logic 
+ - persist params to for reuse of other requests 
+    - reuse param unless specified for that request 
+### 
 class Aggr
   requests : [] 
+  params : {} 
+  
   constructor: (@http = new superagent.agent())->
     @getBindings = @http.get.bind(@http)
 
@@ -22,7 +28,7 @@ class Aggr
       urlParam = 
         id : urlParam 
     request = new Request urlTemplate, urlParam
-    request.parseUrl() 
+    request.assignParamsToUrl() 
     @requests.push request
     return@ 
   
@@ -35,7 +41,6 @@ class Aggr
     async.parallel asyncTasks , (error, responses)-> 
       if responses.length == 1 
         responses = responses[0] 
-      console.log "my test%j", responses  
       callback(error, responses)
 
 

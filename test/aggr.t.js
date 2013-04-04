@@ -12,18 +12,42 @@ should = require('should');
 httpMock = new HttpMock();
 
 describe('Aggr', function() {
-  return it('single request', function(done) {
-    var aggr, data, url;
+  var child, parent;
+
+  parent = {
+    name: 'parent'
+  };
+  child = [
+    {
+      name: "child1"
+    }, {
+      name: "child2"
+    }
+  ];
+  it('single request', function(done) {
+    var aggr, url;
 
     url = '/parent/:parentId';
-    data = {
-      name: 'parent'
-    };
-    httpMock.expectGET('/parent/1', data, 200);
+    httpMock.expectGET('/parent/1', parent, 200);
     aggr = new Aggr(httpMock);
     return aggr.request(url, {
       parentId: 1
     }).exec(function(error, result) {
+      result.should.have.property('status', 200);
+      result.data.should.have.property('name', parent.name);
+      return done();
+    });
+  });
+  return it('should get parent with children', function(done) {
+    var aggr, url;
+
+    url = '/parent/:parentId';
+    httpMock.expectGET('/parent/1', parent, 200);
+    httpMock.expectGET('/parent/1/children', children, 200);
+    aggr = new Aggr(httpMock);
+    return aggr.request(url, {
+      parentId: 1
+    }).append('/parent/:parentId/children').exec(function(error, result) {
       result.should.have.property('status', 200);
       result.data.should.have.property('name', data.name);
       return done();
