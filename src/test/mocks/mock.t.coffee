@@ -10,6 +10,3 @@ describe 'setMock', ->
       assert.equal(result.data, 'data')
       assert.equal(result.status, 200)
     done() 
-
-
-

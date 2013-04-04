@@ -34,7 +34,8 @@ module.exports = class HttpMock
         matchedExpectation = exp 
         break;
     #matchedExpectation = _.find(@expectations, (expectation)-> return expectation.matchUrl(url))
-    callback(null, matchedExpectation.response)
+    process.nextTick ()->
+      callback(null, matchedExpectation.response)
    
   clear: => 
     @expectations = []  

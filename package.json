@@ -22,9 +22,12 @@
   "gitHead": "5fc9434141e97653a31d8d02ffe5902ec0791f60",
   "dependencies": {
     "async": "~0.2.6",
-    "superagent": "~0.12.4"
+    "superagent": "~0.12.4", 
+    "underscore" : "*"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "should" : "*"
+    },
   "directories": {
     "test": "test"
   }
