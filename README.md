@@ -18,11 +18,6 @@ aggr
 2.  get parent and it's children by children ids from parent
 ```javascript 
 aggr
-.load('parent with children id from parent')
-.request('/parent/:parentId', {parentId : '1'})
-.append('/parent/:parentId/children/:childId')
-.exec(callback)
-aggr
   .request('/parent/:parentId', {parentId : 1})
   .append('/parent/:parentId/children/:childId', 'childIds', (child)-> return child.id)
   .exec(callback) 
