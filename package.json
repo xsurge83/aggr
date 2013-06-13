@@ -4,7 +4,7 @@
   "description": "Content aggregator lib",
   "main": "index.js",
   "scripts": {
-    "test": "mocha "
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -22,12 +22,20 @@
   "gitHead": "5fc9434141e97653a31d8d02ffe5902ec0791f60",
   "dependencies": {
     "async": "~0.2.6",
-    "superagent": "~0.12.4", 
-    "underscore" : "*"
+    "superagent": "~0.12.4",
+    "underscore": "*"
   },
   "devDependencies": {
-    "should" : "*"
-    },
+    "grunt": "~0.4.1",
+    "should": "*",
+    "grunt-contrib-concat": "~0.1.3",
+    "grunt-contrib-jshint": "~0.1.1",
+    "grunt-contrib-uglify": "~0.1.2",
+    "grunt-contrib-watch": "~0.1.4",
+    "grunt-contrib-clean": "~0.4.1",
+    "grunt-contrib-copy": "~0.4.1",
+    "grunt-contrib-coffee": "~0.7.0"
+  },
   "directories": {
     "test": "test"
   }

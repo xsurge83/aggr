@@ -6,7 +6,7 @@ aggr
   .exec(callback)
 ````
 
--  get parent and it's children 
+1.  get parent and it's children 
 ```javascript 
 aggr
 .load('parent with children id from parent')
@@ -15,17 +15,23 @@ aggr
 .exec(callback)
 ```
 
--  get parent and it's children by children ids from parent
+2.  get parent and it's children by children ids from parent
 ```javascript 
 aggr
 .load('parent with children id from parent')
 .request('/parent/:parentId', {parentId : '1'})
 .append('/parent/:parentId/children/:childId')
 .exec(callback)
+aggr
+  .request('/parent/:parentId', {parentId : 1})
+  .append('/parent/:parentId/children/:childId', 'childIds', (child)-> return child.id)
+  .exec(callback) 
 ```
-**Note childId is a property of parent** 
+**Note:**
+**childId is a property of parent** 
+**Second parameter is iterator function**
 
--  get parent and child its child  
+3.  get parent and child its child  
 ```javascript 
 parent = {
   parentId : 1, 
